@@ -1,0 +1,190 @@
+.div-personal, .div-info { margin: 0; position: static; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.div-div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.div-personal {
+  flex: 0 0 300px;
+  height: 70vh;
+  border-radius: 20px;
+  border: 1px solid rgb(59,59,59);
+  background-color: rgb(33,33,33);
+}
+
+.pfp-div {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+
+.pfp {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.info {
+  height: 75.5%;
+
+  display: inline;
+  flex-direction: column;
+  justify-content: center;
+  
+
+  color: rgb(213, 213, 213);
+  font-size: 25px;
+  text-align: center;
+}
+
+
+/* Name */
+.name {
+  height: 30px;
+  font-weight: 600;
+}
+
+
+
+/* Location */
+.titlen {
+  font-size: 10px;
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+  opacity: 50%;
+  font-weight: 100;
+}
+
+.location {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dob1 {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 1px; 
+}
+
+.age {
+  color: white;
+  opacity: 70%;
+  font-size: 9px;
+}
+
+
+.email1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.email1 a {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.email1 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  border-bottom: 1px dotted white;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.email1 a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+
+.git1 {
+  display: flex;
+  justify-content: center;
+}
+
+.git1 a {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.git1 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  border-bottom: 1px dotted white;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.git1 a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+
+.bio1 {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 600;  
+}
+
+
+
+
+
+
+
+
+.div-info {
+  flex: 0 0 min(40vw, 700px);
+  height: 70vh;
+  border-radius: 20px;
+  border: 1px solid rgb(59,59,59);
+  background-color: rgb(33,33,33);
+}
+
+
+.experience {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 1px; 
+}
