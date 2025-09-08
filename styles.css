@@ -1,112 +1,133 @@
-.div-personal, .div-info { margin: 0; position: static; }
-
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: rgb(21,21,21);
+  color: rgb(213,213,213);
 }
 
+/* Container */
 .div-div {
   display: flex;
   justify-content: center;
   gap: 20px;
   align-items: flex-start;
   width: 100%;
-  box-sizing: border-box;
   padding: 40px 0;
 }
 
-.div-personal {
-  flex: 0 0 300px;
+/* Rounded panels */
+.div-personal,
+.div-info {
+  margin: 0;
+  position: relative;
   height: 70vh;
   border-radius: 20px;
   border: 1px solid rgb(59,59,59);
   background-color: rgb(33,33,33);
+  overflow: hidden; /* clip rounded corners */
 }
 
+/* Inner scroll wrapper */
+.inner-scroll {
+  position: absolute;
+  inset: 12px;
+  overflow-y: overlay; /* overlay instead of pushing content */
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Custom scrollbar */
+.inner-scroll::-webkit-scrollbar {
+  width: 6px;
+  z-index: 10; /* make sure it floats above */
+}
+.inner-scroll::-webkit-scrollbar-track { 
+  background: transparent;
+  border-radius: 10px;
+}
+.inner-scroll::-webkit-scrollbar-thumb {
+  background: rgb(100,100,100);
+  border-radius: 10px;
+  min-height: 28px;
+}
+.inner-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(150,150,150);
+}
+
+/* Firefox */
+.inner-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(100,100,100) transparent;
+}
+
+/* Left panel */
+.div-personal { flex: 0 0 300px; }
 .pfp-div {
-  height: 100px;
   width: 100%;
   display: flex;
-  align-items: top;
+  align-items: flex-start; 
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 10px;
-
 }
-
 .pfp {
-  height: 100%;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .info {
-  height: 75.5%;
-
-  display: inline;
+  width: 100%;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  
-
-  color: rgb(213, 213, 213);
-  font-size: 25px;
   text-align: center;
+  font-size: 25px;
 }
 
+/* Text */
+.name { height: 30px; font-weight: 600; }
 
-/* Name */
-.name {
-  height: 30px;
-  font-weight: 600;
-}
-
-
-
-/* Location */
 .titlen {
   font-size: 10px;
   margin-top: 10px;
-  color: rgb(255, 255, 255);
-  opacity: 50%;
+  color: rgb(255,255,255);
+  opacity: 0.5;
   font-weight: 100;
 }
 
-.location {
-  color: rgb(204, 204, 204);
+.location,
+.dob1,
+.email1 a,
+.git1 a,
+.bio1,
+.experience {
+  color: rgb(204,204,204);
   font-size: 13px;
   font-weight: 600;
 }
 
 .dob1 {
-  color: rgb(204, 204, 204);
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  gap: 1px; 
+  display: flex; justify-content: center; gap: 1px;
 }
-
 .age {
-  color: white;
-  opacity: 70%;
-  font-size: 9px;
+  color: white; opacity: 0.7; font-size: 9px;
 }
 
-
-.email1 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+/* Links */
+.email1, .git1 { 
+  display: flex; justify-content: center;
 }
-
-.email1 a {
-  color: rgb(204, 204, 204);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
+.email1 a, .git1 a {
+  text-decoration: none; position: relative; display: inline-block;
 }
-
-.email1 a::after {
+.email1 a::after, .git1 a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -116,75 +137,20 @@ body {
   opacity: 0;
   transform: scaleX(0);
   transform-origin: left;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity .3s ease, transform .3s ease;
 }
-
-.email1 a:hover::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-
-.git1 {
-  display: flex;
-  justify-content: center;
-}
-
-.git1 a {
-  color: rgb(204, 204, 204);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-}
-
-.git1 a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  border-bottom: 1px dotted white;
-  opacity: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
+.email1 a:hover::after,
 .git1 a:hover::after {
   opacity: 1;
   transform: scaleX(1);
 }
 
-
-.bio1 {
-  color: rgb(204, 204, 204);
-  font-size: 13px;
-  font-weight: 600;  
-}
-
-
-
-
-
-
-
-
+/* Right panel */
 .div-info {
   flex: 0 0 min(40vw, 700px);
-  height: 70vh;
-  border-radius: 20px;
-  border: 1px solid rgb(59,59,59);
-  background-color: rgb(33,33,33);
 }
-
-
 .experience {
-  color: rgb(204, 204, 204);
-  font-size: 13px;
-  font-weight: 600;
   display: flex;
   justify-content: center;
-  gap: 1px; 
+  gap: 1px;
 }
